@@ -14,24 +14,29 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    Future.delayed(
-      const Duration(seconds: 2),
-      () {
-        GoRouter.of(context).pushReplacement(RoutesName.onBoarding);
-      },
-    );
+    navigationToOnBoardingScreen();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-        body: Center(
-      child: Text(
-        textAlign: TextAlign.center,
-        AppStrings.appName,
-        style: AppTextStyles.pacifico400Style64,
+      body: Center(
+        child: Text(
+          textAlign: TextAlign.center,
+          AppStrings.appName,
+          style: AppTextStyles.pacifico400Style64,
+        ),
       ),
-    ));
+    );
+  }
+
+  Future<void> navigationToOnBoardingScreen() {
+    return Future.delayed(
+      const Duration(seconds: 2),
+      () {
+        GoRouter.of(context).pushReplacement(RoutesName.onBoarding);
+      },
+    );
   }
 }

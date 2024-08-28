@@ -4,24 +4,16 @@ import 'package:dalel/features/on_boarding/presentation/widgets/custom_smooth_pa
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class OnBoardingViewBody extends StatefulWidget {
-  const OnBoardingViewBody({super.key});
-
-  @override
-  State<OnBoardingViewBody> createState() => _OnBoardingViewBodyState();
-}
-
-class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
-  final PageController pageController = PageController();
-  @override
-  void dispose() {
-    pageController.dispose();
-    super.dispose();
-  }
+class OnBoardingViewBody extends StatelessWidget {
+  final PageController pageController;
+  final void Function(int)? onPageChanged;
+  const OnBoardingViewBody(
+      {super.key, required this.pageController, this.onPageChanged});
 
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
+      onPageChanged: onPageChanged,
       controller: pageController,
       scrollDirection: Axis.horizontal,
       itemCount: onBoardingData.length,

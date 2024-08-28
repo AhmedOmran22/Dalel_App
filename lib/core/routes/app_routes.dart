@@ -1,4 +1,5 @@
 import 'package:dalel/core/routes/routes_name.dart';
+import 'package:dalel/features/auth/presentation/views/sign_up_view.dart';
 import 'package:dalel/features/home/presentation/views/home_view.dart';
 import 'package:dalel/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:dalel/features/splash/presentation/views/splash_view.dart';
@@ -23,6 +24,12 @@ final GoRouter router = GoRouter(
       path: RoutesName.onBoarding,
       builder: (BuildContext context, GoRouterState state) {
         return const OnBoardingView();
+      },
+    ),
+    GoRoute(
+      path: RoutesName.signUp,
+      builder: (BuildContext context, GoRouterState state) {
+        return const SignUpView();
       },
     )
   ],

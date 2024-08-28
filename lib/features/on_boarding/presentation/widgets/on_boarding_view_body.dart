@@ -29,19 +29,28 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
       itemBuilder: (BuildContext context, int index) {
         return Column(
           children: [
-            SvgPicture.asset(AppAssets.assetsSvgsOnBoarding1),
+            SvgPicture.asset(
+              AppAssets.assetsSvgsOnBoarding1,
+              width: 340,
+              height: 290,
+              fit: BoxFit.fill,
+            ),
             const SizedBox(height: 24),
             CustomSmoothPageIndicator(pageController: pageController),
             const SizedBox(height: 50),
             const Text(
-              textAlign: TextAlign.center,
               AppStrings.onBoardingTitleOne,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
               style: AppTextStyles.poppins500Style26,
             ),
             const SizedBox(height: 24),
             const Text(
-              textAlign: TextAlign.center,
               AppStrings.onBoardingSubtitleOne,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
               style: AppTextStyles.poppins400Style16,
             ),
           ],

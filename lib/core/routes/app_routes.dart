@@ -15,12 +15,6 @@ final GoRouter router = GoRouter(
       },
     ),
     GoRoute(
-      path: RoutesName.homeView,
-      builder: (BuildContext context, GoRouterState state) {
-        return const HomeView();
-      },
-    ),
-    GoRoute(
       path: RoutesName.onBoarding,
       builder: (BuildContext context, GoRouterState state) {
         return const OnBoardingView();
@@ -31,6 +25,12 @@ final GoRouter router = GoRouter(
       builder: (BuildContext context, GoRouterState state) {
         return const SignUpView();
       },
-    )
+    ),
+    GoRoute(
+      path: RoutesName.homeView,
+      builder: (BuildContext context, GoRouterState state) {
+        return const HomeView();
+      },
+    ),
   ],
 );

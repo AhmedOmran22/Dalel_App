@@ -1,11 +1,8 @@
-import 'package:dalel/core/routes/routes_name.dart';
-import 'package:dalel/core/utils/app_strings.dart';
-import 'package:dalel/core/widgets/custom_button.dart';
 import 'package:dalel/features/on_boarding/data/models/on_boarding_model.dart';
+import 'package:dalel/features/on_boarding/presentation/widgets/get_button.dart';
 import 'package:dalel/features/on_boarding/presentation/widgets/on_boarding_view_body.dart';
 import 'package:dalel/features/on_boarding/presentation/widgets/skip_text.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
@@ -49,23 +46,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   pageController: pageController,
                 ),
               ),
-              const SizedBox(height: 88),
-              currentIndex == onBoardingData.length - 1
-                  ? CustomButton(
-                      text: 'Create Account',
-                      onPressed: () {
-                        GoRouter.of(context).push(RoutesName.signUp);
-                      },
-                    )
-                  : CustomButton(
-                      text: AppStrings.next,
-                      onPressed: () {
-                        pageController.nextPage(
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.bounceIn,
-                        );
-                      },
-                    ),
+              GetButton(
+                  currentIndex: currentIndex, pageController: pageController),
               const SizedBox(height: 18),
             ],
           ),

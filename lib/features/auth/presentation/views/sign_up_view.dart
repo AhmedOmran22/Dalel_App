@@ -1,11 +1,11 @@
-import 'package:dalel/core/utils/app_colors.dart';
-import 'package:dalel/core/utils/app_strings.dart';
-import 'package:dalel/core/utils/app_text_styles.dart';
 import 'package:dalel/core/widgets/custom_button.dart';
 import 'package:dalel/features/auth/presentation/widgets/custom_text_filed.dart';
+import 'package:dalel/features/auth/presentation/widgets/have_an_account.dart';
 import 'package:dalel/features/auth/presentation/widgets/terms_and_coditions.dart';
 import 'package:dalel/features/auth/presentation/widgets/welcome_text.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/utils/app_strings.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
@@ -53,38 +53,6 @@ class SignUpView extends StatelessWidget {
               )
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class HaveAnAccount extends StatelessWidget {
-  const HaveAnAccount({
-    super.key,
-    required this.text1,
-    required this.text2,
-    this.onTap,
-  });
-  final String text1, text2;
-  final VoidCallback? onTap;
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.center,
-      child: Text.rich(
-        TextSpan(
-          children: [
-            TextSpan(
-              text: text1,
-              style: AppTextStyles.poppins400Style12,
-            ),
-            TextSpan(
-              text: text2,
-              style: AppTextStyles.poppins400Style12
-                  .copyWith(color: AppColors.deepGrey),
-            ),
-          ],
         ),
       ),
     );

@@ -1,9 +1,12 @@
 import 'package:dalel/core/routes/routes_name.dart';
+import 'package:dalel/core/services/service_locator.dart';
 import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/widgets/custom_button.dart';
 import 'package:dalel/features/on_boarding/data/models/on_boarding_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../../core/cache/casch_helper.dart';
 
 class GetButton extends StatelessWidget {
   const GetButton(
@@ -17,7 +20,11 @@ class GetButton extends StatelessWidget {
       return CustomButton(
         text: 'Create Account',
         onPressed: () {
-          GoRouter.of(context).push(RoutesName.signUp);
+          getIt
+              .get<CacheHelper>()
+              .saveData(key: 'IsOnBoardingVisited', value: true);
+
+          GoRouter.of(context).pushReplacement(RoutesName.signUp);
         },
       );
     } else {

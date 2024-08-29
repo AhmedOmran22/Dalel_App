@@ -1,3 +1,4 @@
+import 'package:dalel/core/cache/casch_helper.dart';
 import 'package:dalel/core/routes/routes_name.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -14,6 +15,7 @@ class SkipText extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        CacheHelper().saveData(key: 'IsOnBoardingVisited', value: true);
         GoRouter.of(context).push(RoutesName.signUp);
       },
       child: Text(

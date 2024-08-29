@@ -1,3 +1,4 @@
+import 'package:dalel/core/cache/casch_helper.dart';
 import 'package:dalel/core/routes/routes_name.dart';
 import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/utils/app_text_styles.dart';
@@ -14,7 +15,11 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    navigationToOnBoardingScreen();
+    bool isOnBoardingVisited =
+        CacheHelper().getData(key: 'IsOnBoardingVisited') ?? false;
+    isOnBoardingVisited
+        ? navigationToSignUPView()
+        : navigationToOnBoardingScreen();
     super.initState();
   }
 
@@ -36,6 +41,15 @@ class _SplashViewState extends State<SplashView> {
       const Duration(seconds: 2),
       () {
         GoRouter.of(context).pushReplacement(RoutesName.onBoarding);
+      },
+    );
+  }
+
+  Future<void> navigationToSignUPView() {
+    return Future.delayed(
+      const Duration(seconds: 2),
+      () {
+        GoRouter.of(context).pushReplacement(RoutesName.signUp);
       },
     );
   }

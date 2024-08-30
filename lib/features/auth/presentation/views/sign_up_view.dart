@@ -27,9 +27,7 @@ class SignUpView extends StatelessWidget {
               const SliverToBoxAdapter(
                   child: CustomTextField(labelText: AppStrings.lastName)),
               const SliverToBoxAdapter(
-                child: CustomTextField(
-                  labelText: AppStrings.emailAddress,
-                ),
+                child: CustomTextField(labelText: AppStrings.emailAddress),
               ),
               const SliverToBoxAdapter(
                   child: CustomTextField(

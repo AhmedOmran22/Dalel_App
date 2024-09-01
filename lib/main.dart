@@ -13,8 +13,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-  );
-  await getIt.get<CacheHelper>().init();
+  );  await getIt.get<CacheHelper>().init();
   runApp(const DalelApp());
 }
 

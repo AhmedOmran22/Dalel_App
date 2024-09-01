@@ -1,9 +1,11 @@
+import 'package:dalel/core/routes/routes_name.dart';
 import 'package:dalel/core/widgets/custom_button.dart';
 import 'package:dalel/features/auth/presentation/widgets/custom_text_filed.dart';
 import 'package:dalel/features/auth/presentation/widgets/have_an_account.dart';
 import 'package:dalel/features/auth/presentation/widgets/terms_and_coditions.dart';
 import 'package:dalel/features/auth/presentation/widgets/welcome_text.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/app_strings.dart';
 
@@ -43,10 +45,13 @@ class SignUpView extends StatelessWidget {
                 ),
               ),
               const SliverToBoxAdapter(child: SizedBox(height: 16)),
-              const SliverToBoxAdapter(
+              SliverToBoxAdapter(
                 child: HaveAnAccount(
                   text1: AppStrings.dontHaveAnAccount,
                   text2: AppStrings.signIn,
+                  onTap: () {
+                    GoRouter.of(context).push(RoutesName.signIn);
+                  },
                 ),
               )
             ],

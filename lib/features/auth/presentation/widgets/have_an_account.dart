@@ -1,6 +1,7 @@
 import 'package:dalel/core/utils/app_colors.dart';
 import 'package:dalel/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
+
 class HaveAnAccount extends StatelessWidget {
   const HaveAnAccount({
     super.key,
@@ -14,20 +15,22 @@ class HaveAnAccount extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.center,
-      child: Text.rich(
-        TextSpan(
-          children: [
-            TextSpan(
-              text: text1,
-              style: AppTextStyles.poppins400Style12,
-            ),
-            TextSpan(
-              text: text2,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            text1,
+            style: AppTextStyles.poppins400Style12,
+          ),
+          GestureDetector(
+            onTap: onTap,
+            child: Text(
+              text2,
               style: AppTextStyles.poppins400Style12
                   .copyWith(color: AppColors.deepGrey),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
